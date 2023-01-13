@@ -1,0 +1,2 @@
+# Quake Remastered stdout processing
+ 
