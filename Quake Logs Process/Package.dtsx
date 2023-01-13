@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/10/2023 1:41:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVINGROOM"
+  DTS:CreatorName="LIVINGROOM\Administrator"
+  DTS:DTSID="{C69834EA-C850-4475-9486-507CA625792A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{CB598840-CDEC-4268-852D-524DE6DE8E5C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[livingroom.DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+      DTS:ObjectName="livingroom.DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=livingroom;Initial Catalog=DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{70AE20EC-45CC-467E-BB87-C2ED7D61E192}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileMeta">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F4EDF54C-3485-449E-8994-569520528999}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MinDate">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{457AC3C6-9F7C-4919-8336-08659373AAEC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MinTime">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BF3B739A-F30D-433F-B8A5-CB67C0D3CCD9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Mod">
+      <DTS:VariableValue
+        DTS:DataType="8">rockets only</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A0D1BE4F-3C29-4CAA-962C-E00D48E997E3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Server">
+      <DTS:VariableValue
+        DTS:DataType="8">a cheesecake</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C23BA09F-7BC4-43C0-84D9-244342C9561D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="LEFT(@[User::TableName] ,22) == &quot;stdout_JohnRomero_TDM_&quot; ? SUBSTRING( @[User::TableName],23 , 10 ) : ( LEFT(@[User::TableName] ,23) == &quot;stdout_JohnRomero_KOtH_&quot; ?&#xA;SUBSTRING( @[User::TableName]  , 24 , 10 )&#xA;: ( LEFT(@[User::TableName] ,27) == &quot;stdout_JohnRomero_Instagib_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 28, 10 )&#xA;:&#xA;SUBSTRING( @[User::TableName]  , 20, 10 )&#xA;)&#xA;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableDate">
+      <DTS:VariableValue
+        DTS:DataType="8">2023-01-04</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA6BE772-6C5C-49D7-9486-FEF36A990DBF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="LEFT(@[User::TableName] ,22) == &quot;stdout_JohnRomero_TDM_&quot; ? SUBSTRING( @[User::TableName],34 , 2 ) : ( LEFT(@[User::TableName] ,23) == &quot;stdout_JohnRomero_KOtH_&quot; ?&#xA;SUBSTRING( @[User::TableName]  , 35 , 2 )&#xA;:( LEFT(@[User::TableName] ,27) == &quot;stdout_JohnRomero_Instagib_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 39, 2)&#xA;:&#xA;SUBSTRING( @[User::TableName]  , 31, 2)&#xA;)&#xA;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableHour">
+      <DTS:VariableValue
+        DTS:DataType="8">09</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{32A30E27-CEB3-45E3-8FE3-68213EE5E413}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="REPLACE(@[User::varFileName],&quot;.txt&quot;,&quot;&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableName">
+      <DTS:VariableValue
+        DTS:DataType="8">stdout_RocketsOnly_2023-01-04T09-01-29.237022300</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6D926CB4-8C66-47A7-B2C4-B313F6CD1496}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varCurFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5B98B69E-E769-4B44-AA2A-C520B0854DEA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileModifiedDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CF41451B-CBF4-4051-A29B-A2566BBDAEE7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">stdout_RocketsOnly_2023-01-04T09-01-29.237022300</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CD99A073-535A-457C-8C97-8B17C727819D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileSize">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{ABEF12D2-132C-4510-A650-6D168B72CCD5}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{0A4ECF90-7AE3-4DF9-8208-A792F0605B69}"
+        DTS:ObjectName="{0A4ECF90-7AE3-4DF9-8208-A792F0605B69}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::FileMeta" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Bulk Insert"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{d0ae7f8a-f73b-47e8-9d4f-98c015429418}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Bulk Insert"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:SqlStatementSource="EXEC('BULK INSERT ['+ ? +']&#xA;FROM ''' + ? + '''')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::varCurFilePath"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Create Rank for Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6c489576-9969-4715-a1e1-2714731f7c89}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create Rank for Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:SqlStatementSource="EXEC('ALTER TABLE ['+ ? +']&#xA;ADD [rank] [int] IDENTITY(1,1) &#xA;')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Create Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A111302E-A944-4E4D-88C2-1294DED95CFA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:SqlStatementSource="EXEC('Create Table dbo.['+ ? +']&#xA;(&#xA;&#x9;Column1 nvarchar(512)&#xA;)')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Find MinDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{94e4f8d6-7d44-4dd6-acea-926db1e43f68}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Find MinDate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:SqlStatementSource="DECLARE @TABLENAME varchar(100) = ?&#xA;DECLARE @TABLEDATE varchar(50) = ?&#xA;DECLARE @TABLEHOUR varchar(50) = ?&#xA;&#xA;EXEC('&#xA;;WITH CTE AS&#xA;(&#xA;SELECT MAX([rank]) as [rank],&#xA;DATEPART(HOUR,(LEFT(column1,8) )) as [hr]&#xA;,CASE WHEN DATEPART(HOUR,(LEFT(column1,8) )) &gt; '''+ @TABLEHOUR +''' THEN DATEADD(day,-1,'''+ @TABLEDATE + ''') ELSE ''' + @TABLEDATE + ''' END as [dates]&#xA;FROM ['+ @TABLENAME +']&#xA;WHERE COLUmn1 IS NOT NULL AND COlumn1 like ''%[0-9][0-9]:[0-9][0-9]:[0-9][0-9]%''&#xA;GROUP BY DATEPART(HOUR,(LEFT(column1,8) ))&#xA;)&#xA;SELECT MIN(CONVERT(date,[dates]))  as [MinDate]&#xA;FROM CTE ')"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="MinDate"
+                SQLTask:DtsVariableName="User::MinDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TableDate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::TableHour"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Find MinTime"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3237350b-ccb8-4eec-9d39-498f970d3593}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Find MinTime"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:SqlStatementSource="DECLARE @TABLENAME varchar(100) = ?&#xA;EXEC('SELECT LEFT(column1,8) as [MinTime] FROM ['+ @TABLENAME +'] WHERE COLUmn1 IS NOT NULL AND COlumn1 like ''%[0-9][0-9]:[0-9][0-9]:[0-9][0-9]%'' AND [rank] = 1')"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="MinTime"
+                SQLTask:DtsVariableName="User::MinTime" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Insert Into Quakelogs"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ef5b58e5-fa5f-4c95-adba-7f03837f6536}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert Into Quakelogs"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:SqlStatementSource="--SELECT * FROM Quakelogs Q WHERE &#xA;--Q.ImportDate = (SELECT MAX(importdate) FROM QuakeLogs)&#xA;&#xA;--UPDATE Q &#xA;--SET Q.date = '2022-12-14'&#xA;--FROM QuakeLogs Q&#xA;--WHERE Q.ImportDate = (SELECT MAX(importdate) FROM QuakeLogs)&#xA;&#xA;--SELECT * FROM QUAKE1 WHERE ImportDate &gt;= '2023-01-04 10:52:16.420'&#xA;--SELECT * FROM Quake1Matches WHERE ImportDate &gt;= '2023-01-04 10:52:16.420'&#xA;--SELECT * FROM Quake1MatchWins WHERE ImportDate &gt;= '2023-01-04 10:52:16.420'&#xA;&#xA;--stdout_RocketsOnly_2023-01-03T21-18-27.214103100&#xA;DECLARE @File nvarchar(200) = '[' + ? + ']'&#xA;DECLARE @SERVER nvarchar(35) = ?&#xA;DECLARE @MOD nvarchar(35) = ?&#xA;DECLARE @BEGINTIME nvarchar(20) = ?&#xA;DECLARE @FIRSTDATE DATE = ?&#xA;&#xA;&#xA;&#xA;EXEC('INSERT INTO QuakeLogs&#xA;    (column1)&#xA;SELECT Column1&#xA;FROM ' + @File + ' WHERE column1 IS NOT NULL'&#xA;)&#xA;&#xA;&#xA;--Proceed to delete the data we don't want to import from quakelogs&#xA;DELETE &#xA;  FROM [DW].[dbo].[QuakeLogs]&#xA;  WHERE (COLUMN1 like '%: You receive%'&#xA;    OR COLUMN1 like '%tried to normal mode%'&#xA;    OR COLUMN1 like '%type ''headsup'' for fullscreen display%'&#xA;    OR COLUMN1 like '%Tournament Mode Enabled.%'&#xA;    OR COLUMN1 like '%type ''autochase'' for automatic chase switching%'&#xA;    OR COLUMN1 like '%chase mode - help-chase for help%'&#xA;    OR COLUMN1 like '%enabling ''smooth'' mode to eliminate choppines%'&#xA;    OR COLUMN1 like '%alpha            %'&#xA;    OR COLUMN1 like '%delay            %'&#xA;    OR COLUMN1 like '%dest2          %'&#xA;    OR COLUMN1 like '%dest           %'&#xA;    OR COLUMN1 like '%wait            %'&#xA;    OR COLUMN1 like '%walk mode - help-walk for help%'&#xA;    OR COLUMN1 like '%disabling ''smooth'' mode%'&#xA;    OR COLUMN1 like '%: Shutting down %'&#xA;    OR COLUMN1 like ':seconds remaining%'&#xA;    OR COLUMN1 like '%Mod_LoadLighting: maps/dm3.lit is corrupted%'&#xA;    OR COLUMN1 like '%Mod_LoadLighting: maps/dm3.lit is corrupted%'&#xA;    OR COLUMN1 like '% Warning: %'&#xA;    OR COLUMN1 like '% [0-9][0-9][:][0-9][0-9][:][0-9][0-9]'&#xA;    OR COLUMN1 like '%Sending Clanring CRMod++ V4.0 bindings%'&#xA;    OR COLUMN1 like '%Checking bindings.. (set cl_filterstuffcmd 0 before connecting!)%'&#xA;    OR COLUMN1 like '%Trying to disable unicode font...%'&#xA;    OR COLUMN1 like '% tried to password set%'&#xA;    OR COLUMN1 like '%: Duplicate ACK received%'&#xA;    OR COLUMN1 like '%: Clanring CRMod++ V4.0%'&#xA;    OR COLUMN1 like '%: FFA mode%'&#xA;    OR COLUMN1 like '%host:    %'&#xA;    OR COLUMN1 like '%map:     %'&#xA;    OR COLUMN1 like '%tcp/ip:  %'&#xA;    OR COLUMN1 like '%Server set &quot;fraglimit&quot; to %'&#xA;    OR COLUMN1 like '%players: %active %max)%'&#xA;    OR COLUMN1 like '%:    LOCAL'&#xA;    OR COLUMN1 like '%:    [0-9][0-9][0-9][0-9][0-9]'&#xA;    OR COLUMN1 like '%: version: 1.0.4831'&#xA;    OR COLUMN1 like  '% [0-9][:][0-9][0-9][:][0-9][0-9]'&#xA;    OR COLUMN1 like '% is not a field%'&#xA;    OR COLUMN1 like '%[[] Net ID%'&#xA;    OR COLUMN1 like '%backup past 0%'&#xA;    OR COLUMN1 like '%: Quad Damage is wearing off%'&#xA;    OR COLUMN1 like '%: no weapon%'&#xA;    OR COLUMN1 like '%: you get %'&#xA;    OR COLUMN1 like '%model          %'&#xA;    OR COLUMN1 like '%avelocity      %'&#xA;    OR COLUMN1 like '%style           %'&#xA;    OR COLUMN1 like '%noise          %'&#xA;    OR COLUMN1 like '%avelocity      %'&#xA;    OR COLUMN1 like '%pos2           %'&#xA;    OR COLUMN1 like '%''s'' is not a field%'&#xA;    OR COLUMN1 like '%: dropping non-whitelisted%'&#xA;    OR COLUMN1 like '%targetname    %'&#xA;    OR COLUMN1 like '%: Client%removed%'&#xA;    OR LEN(column1) = 10&#xA;    OR COLUMN1 like '%Stale ACK received%'&#xA;    OR Column1 like '% dropped [0-9][0-9] %'&#xA;    OR Column1 like '% dropped [0-9] %'&#xA;    --OR column1 like '%: Destroyed chatcontrol%'&#xA;    OR COLUMN1 like '% initialized%'&#xA;    OR column1 like '%: Got a stale datagram%'&#xA;    OR column1 like '%: Compile time: %'&#xA;    OR LEN(column1) = 9&#xA;    OR column1 like ' Initialized%'&#xA;    OR column1 like '%: kexRHI%'&#xA;    OR column1 like '%: libpng %'&#xA;    OR column1 like '%: spawnflags  %'&#xA;    OR column1 like '%: CL[_]%'&#xA;    OR column1 like '%==%'&#xA;    OR column1 like '%kexSocial%'&#xA;    OR column1 like '%Successfully%'&#xA;    OR column1 not like '%[0-9]%'&#xA;    OR column1 like '%playfab%'&#xA;    OR column1 like '%kex[a-z]%'&#xA;    OR column1 like '%NET_GetMessage%'&#xA;    OR column1 like '%settings manager%'&#xA;    OR column1 like '%classname   %'&#xA;    OR column1 like '%target   %'&#xA;    OR column1 like '%origin         %'&#xA;    OR column1 like '%angles         %'&#xA;    OR column1 like '%no spawn function for:%'&#xA;    OR column1 like '%player is stuck%'&#xA;    OR column1 like '%unstuck%'&#xA;    OR column1 like '%bot manager%'&#xA;    OR column1 like '%Nav Manager%'&#xA;    OR column1 like '%RelationNumaNode%'&#xA;    OR column1 like '%Max Worker Threads%'&#xA;    OR column1 like '% Max Logical CPU Cores%'&#xA;    OR column1 like '% Available video displays:%'&#xA;    OR column1 like '%: Display monitor:%'&#xA;    OR column1 like '% Initializing RHI and renderer%'&#xA;    OR column1 like '% Initializing Rendering Hardware Interface%'&#xA;    OR column1 like '%: Dedicated Video:%'&#xA;    OR COLUMN1 like '%: Dedicated System:%'&#xA;    OR COLUMN1 like '%: Vendor ID:%'&#xA;    OR COLUMN1 like '%: Adaptor Feature Level:%'&#xA;    OR COLUMN1 like '%: DX Compiler Version:%'&#xA;    OR COLUMN1 like '%: Running game session%'&#xA;    OR COLUMN1 like '%: Host_Init:%'&#xA;    OR COLUMN1 like '%: COM_Init:%'&#xA;    OR COLUMN1 like '%: Added packfile %'&#xA;    OR COLUMN1 like '%: W_LoadWadFile:%'&#xA;    OR COLUMN1 like '%: NET_Init:%'&#xA;    OR COLUMN1 like '%: TCP/IP address%'&#xA;    OR COLUMN1 like '%: SV_Init:%'&#xA;    OR COLUMN1 like '%: R_Init:%'&#xA;    OR COLUMN1 like '%: S_Init:%'&#xA;    OR COLUMN1 like '%: M_ImguiInit%'&#xA;    OR COLUMN1 like '%: Bot Chat Manager%'&#xA;    OR COLUMN1 like '%: Unknown command:%'&#xA;    OR COLUMN1 like '%3 demo(s) in loop%'&#xA;    OR COLUMN1 like '%: Added 1 episodes and 7 maps to mapdb%'&#xA;    OR COLUMN1 like '%: Clearing memory%'&#xA;    OR COLUMN1 like '%: Playing demo from demo1.dem.%'&#xA;    OR COLUMN1 like '%: Serverinfo%'&#xA;    OR COLUMN1 like '%: Clearing memory%'&#xA;    OR COLUMN1 like '%: the Necropolis%'&#xA;    OR COLUMN1 like '%: R[_]%'&#xA;    OR COLUMN1 like '%: W[_]%'&#xA;    OR COLUMN1 like '%: BNET %'&#xA;    OR COLUMN1 like '%lobby State%'&#xA;    OR COLUMN1 like '%: NetworkManager%'&#xA;    OR COLUMN1 like '%Created ChatControl for%'&#xA;    OR COLUMN1 like '%NET ID:%'&#xA;    OR COLUMN1 like '%: You got %'&#xA;    OR COLUMN1 like '%: Filtering a name %'&#xA;    --OR COLUMN1 like '%: COM_[a-z]%'&#xA;    OR COLUMN1 like '%3 demo(s) in loop%'&#xA;    OR column1 like '%: Shared System:%'&#xA;    OR column1 like '%: Sbar_Init:%'&#xA;    OR column1 like '%: M_DoBNetBasicSignIn%'&#xA;    OR column1 like '%: ConnectNotifications:%'&#xA;    OR column1 like '%: Host_EndGame:%'&#xA;    OR column1 like '%: Changes will take effect on next level load.%'&#xA;    OR column1 like '%: Programs occupy%'&#xA;    OR column1 like '%: ''fog_info_entity'' is not a field%'&#xA;    OR column1 like '%: ''mapversion'' is not a field%'&#xA;    OR column1 like 'EDICT%'&#xA;    OR column1 like '%: ''fog_color'' is not a field%'&#xA;    OR column1 like '%: ''fog_density'' is not a field%'&#xA;    OR column1 like '%: targetname     fog%'&#xA;    OR column1 like '%entities inhibited%'&#xA;    OR column1 like '%: Server spawned%'&#xA;    OR column1 like '%: Client LOCAL connected%'&#xA;    --OR column1 like '%: Server set &quot;gamemode&quot; %'&#xA;    --OR column1 like '% entered the game%'&#xA;    OR column1 like '%: Bot client connected%'&#xA;    OR column1 like '%bot_chat_disable%'&#xA;    OR column1 like '%: Bot Systems%'&#xA;    OR column1 like '%: Bot Entity Manager%'&#xA;    OR column1 like '%: Client%connected%'&#xA;    OR COLUMN1 like '%:  second% remaining!%'&#xA;    --OR COLUMN1 like '%[ Reason: Requested]%'&#xA;    OR COLUMN1 like '%: Bot Entity Manager: Unknown Item backpack Was Spawned%'&#xA;    OR COLUMN1 like '%: Unknown command: serverinfo%'&#xA;    OR COLUMN1 like '%: classname      info_notnull%'&#xA;    OR COLUMN1 like '%: No spawn function for:%'&#xA;    OR COLUMN1 like '%: Game will open in %second%'&#xA;    OR COLUMn1 like '%: Current game queue position 1 of 1%'&#xA;    OR COLUMN1 like '%: %became an observer%'&#xA;    OR COLUMN1 like '%: Sending console bindings%'&#xA;    --OR COLUMN1 like '%[ Reason: Disconnected]%'&#xA;    OR column1 like 'FTE %'&#xA;    OR COLUMN1 = '[ Region: EastUs2]'&#xA;    OR column1 like '%: No demos listed with startdemos%'&#xA;    OR column1 like '%used the Horn of Conjuring%'&#xA;    OR COLUMN1 like '%ANTILAG: check client pings%'&#xA;    OR column1 like '%is on a killing spree%'&#xA;    OR column1 like '% killing spree ended at%'&#xA;    OR COLUMN1 like '%has%kills in a row%'&#xA;    OR COLUMN1 like '%: LOG: %'&#xA;    OR COLUMN1 like '%: You have entered an invalid impulse.'&#xA;    OR COLUMN1 like '%: Your bindings may be incorrect - try'&#xA;    OR COLUMN1 like '%: reconnecting to the server.'&#xA;    OR COLUMN1 like '%: Dropping non-allowed stuffcmd: impulse 38'&#xA;&#x9;OR Left(column1,8) not like '[0-9][0-9]:[0-9][0-9]:%'&#xA;OR Left(column1,8) not like '[0-9][0-9]:[0-9][0-9]:[0-9][0-9]%'  &#xA;OR COLUMN1 like '%cmd w_switch x - set w_switch to x (overrides autoweapon)%'&#xA; )&#xA;    AND DATE IS NULL&#xA;&#xA;--Cheesecake servers were seeing some seconds posting on the next time which was throwing some data off&#xA;UPDATE Q SET column1 = SUBSTRING([column1],3,LEN([column1]))  FROM QuakeLogs Q  &#xA; WHERE ImportDate in (SELECT MAX(IMPORTDATE)&#xA;    FROM QUAKElogs) AND Column1 Like '[0-9][0-9][0-9][0-9]%'&#xA;&#xA;&#xA;WAITFOR DELAY '00:00:05'&#xA;&#xA;--Cheesecake servers were seeing some seconds posting on the next time which was throwing some data off&#xA;UPDATE Q SET column1 = SUBSTRING([column1],2,LEN([column1]))  FROM QuakeLogs Q  &#xA;WHERE ImportDate in (SELECT MAX(IMPORTDATE)&#xA;    FROM QUAKElogs) AND Column1 Like '[0-9][0-9][0-9]%'&#xA;&#xA;&#xA;--Update the date mod and server in here&#xA;IF(@BEGINTIME = '')&#xA;BEGIN&#xA;        UPDATE Q&#xA;        SET [date] = @FIRSTDATE,[Mod] = @MOD,[server] = @SERVER&#xA;        --SELECT *&#xA;        FROM DW.dbo.QuakeLogs Q&#xA;        WHERE [date] IS NULL&#xA;END&#xA;ELSE&#xA;BEGIN&#xA;&#xA;    UPDATE Q&#xA;    SET [date] = @FIRSTDATE,[Mod] = @MOD,[server] = @SERVER&#xA;    --SELECT *&#xA;    FROM DW.dbo.QuakeLogs Q&#xA;    WHERE [date] IS NULL&#xA;    --AND COLUMN1 like '%: LOG: %'&#xA;    AND Left(Q.column1,8) &gt;= @BEGINTIME&#xA;&#xA;    WAITFOR DELAY '00:00:05'&#xA;&#xA;&#xA;    UPDATE Q&#xA;    SET [date] = DATEADD(DAY,1,@FIRSTDATE),[Mod] = @MOD,[server] = @SERVER&#xA;    --SELECT *&#xA;    FROM DW.dbo.QuakeLogs Q&#xA;    WHERE [date] IS NULL&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Server"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::Mod"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::MinTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::MinDate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Process Data into Quake1 and Other Tables"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{186762eb-ab2f-462b-83e2-3ac5475eadc7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process Data into Quake1 and Other Tables"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:SqlStatementSource="EXEC [dbo].[usp_QuakeLogMessages] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS  Archive File"
+          DTS:CreationName="ZappySys.FileOperationTask"
+          DTS:Description="ZS Advanced File System Task"
+          DTS:DTSID="{2B8A040A-9DF7-4959-8D20-D24FA11E826B}"
+          DTS:ExecutableType="ZappySys.FileOperationTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS  Archive File"
+          DTS:TaskContact="Advanced File System Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileOperationTask
+              Action="MoveFile"
+              Permission="Default"
+              SearchString=""
+              ReplaceString=""
+              Encoding="UTF8"
+              SearchMode="Normal"
+              SearchIgnoreCase="False"
+              SourcePathAccessMode="Variable"
+              SourcePathValue=""
+              SourcePathConnection=""
+              SourcePathVariable="User::varCurFilePath"
+              Recursive="False"
+              ResultVariable=""
+              TargetPathAccessMode="Direct"
+              TargetPathValue="C:\Users\Administrator\Downloads\Processing\Processed\"
+              TargetPathConnection=""
+              TargetPathVariable=""
+              OverWriteOption="AlwaysOverwrite"
+              CreateMissingTargetFolder="True"
+              ContinueOnError="False"
+              ExcludeRegXPattern=""
+              IncludeRegXPattern=""
+              SortBy="Size"
+              SortDirection="Asc"
+              WhereClause=""
+              EnableSort="False"
+              MaxItems="0"
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS Logging Finished"
+          DTS:CreationName="ZappySys.LoggingTask"
+          DTS:Description="ZS Logging Task"
+          DTS:DTSID="{be202bf3-e97b-4e3b-9d8d-a57434ce2212}"
+          DTS:ExecutableType="ZappySys.LoggingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS Logging Finished"
+          DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <LoggingTask
+              Message="I Finished with {{User::TableName}}"
+              LogVariableName=""
+              MessageType="Information"
+              LogMode="File"
+              LogFilePath="C:\Users\Administrator\Downloads\Processing\logs\Log.txt"
+              LogFileAppend="True"
+              LogDateTime="True"
+              DateTimeFormat="HH:mm:ss"
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS Logging MinDate"
+          DTS:CreationName="ZappySys.LoggingTask"
+          DTS:Description="ZS Logging Task"
+          DTS:DTSID="{23dda26f-5c98-492d-ac43-c5cdbd016a9e}"
+          DTS:ExecutableType="ZappySys.LoggingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS Logging MinDate"
+          DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <LoggingTask
+              Message="I started on {{System::StartTime,yyy-MM-dd hh:mm:ss tt}} MinDate is {{User::MinDate}}"
+              LogVariableName=""
+              MessageType="Information"
+              LogMode="File"
+              LogFilePath="C:\Users\Administrator\Downloads\Processing\logs\Log.txt"
+              LogFileAppend="True"
+              LogDateTime="True"
+              DateTimeFormat="HH:mm:ss"
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS Logging MinTime"
+          DTS:CreationName="ZappySys.LoggingTask"
+          DTS:Description="ZS Logging Task"
+          DTS:DTSID="{365865aa-9e6f-4821-b520-d3f60273b141}"
+          DTS:ExecutableType="ZappySys.LoggingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS Logging MinTime"
+          DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <LoggingTask
+              Message="I started on {{System::StartTime,yyy-MM-dd hh:mm:ss tt}} MinTime is {{User::MinTime}}"
+              LogVariableName=""
+              MessageType="Information"
+              LogMode="File"
+              LogFilePath="C:\Users\Administrator\Downloads\Processing\logs\Log.txt"
+              LogFileAppend="True"
+              LogDateTime="True"
+              DateTimeFormat="HH:mm:ss"
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS Logging QUakeLogs Import"
+          DTS:CreationName="ZappySys.LoggingTask"
+          DTS:Description="ZS Logging Task"
+          DTS:DTSID="{ecc9547c-4a01-4a99-bc9b-a5d0d514b61e}"
+          DTS:ExecutableType="ZappySys.LoggingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS Logging QUakeLogs Import"
+          DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <LoggingTask
+              Message="Just finished Importing {{User::TableName}}  into Quakelogs"
+              LogVariableName=""
+              MessageType="Information"
+              LogMode="File"
+              LogFilePath="C:\Users\Administrator\Downloads\Processing\logs\Log.txt"
+              LogFileAppend="True"
+              LogDateTime="True"
+              DateTimeFormat="HH:mm:ss"
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS Logging Stored proc run"
+          DTS:CreationName="ZappySys.LoggingTask"
+          DTS:Description="ZS Logging Task"
+          DTS:DTSID="{5f77ab27-4320-481e-a8f0-328b0ee4c01f}"
+          DTS:ExecutableType="ZappySys.LoggingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS Logging Stored proc run"
+          DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <LoggingTask
+              Message="Just Finished running the stored proc importing data from  {{User::TableName}}  into quakelogs into quake1"
+              LogVariableName=""
+              MessageType="Information"
+              LogMode="File"
+              LogFilePath="C:\Users\Administrator\Downloads\Processing\logs\Log.txt"
+              LogFileAppend="True"
+              LogDateTime="True"
+              DateTimeFormat="HH:mm:ss"
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS Logging Task"
+          DTS:CreationName="ZappySys.LoggingTask"
+          DTS:Description="ZS Logging Task"
+          DTS:DTSID="{82F3EE76-DE12-4281-B6FE-ECEEE5F4C768}"
+          DTS:ExecutableType="ZappySys.LoggingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS Logging Task"
+          DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <LoggingTask
+              Message="Hello from {{System::PackageName}}. I started on {{System::StartTime,yyy-MM-dd hh:mm:ss tt}} fileName is {{User::varFileName}}"
+              LogVariableName=""
+              MessageType="Information"
+              LogMode="File"
+              LogFilePath="C:\Users\Administrator\Downloads\Processing\logs\Log.txt"
+              LogFileAppend="True"
+              LogDateTime="True"
+              DateTimeFormat="HH:mm:ss"
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3A13A1FB-4088-42A4-9B44-43279CE8952F}"
+          DTS:From="Package\Foreach Loop Container\ZS Logging Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Create Table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7980475A-32CB-493A-A38D-2FC0C585646A}"
+          DTS:From="Package\Foreach Loop Container\Create Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Bulk Insert" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 10]"
+          DTS:CreationName=""
+          DTS:DTSID="{77EB7172-229A-4D2E-ACDE-89AE6FACED9B}"
+          DTS:From="Package\Foreach Loop Container\ZS Logging QUakeLogs Import"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 10"
+          DTS:To="Package\Foreach Loop Container\Process Data into Quake1 and Other Tables" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 11]"
+          DTS:CreationName=""
+          DTS:DTSID="{F3E0EA5E-5320-4CA1-ADAF-75F776325DAC}"
+          DTS:From="Package\Foreach Loop Container\Process Data into Quake1 and Other Tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 11"
+          DTS:To="Package\Foreach Loop Container\ZS Logging Stored proc run" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{6C9B914E-448D-4A0E-819E-0546C2D6C2DD}"
+          DTS:From="Package\Foreach Loop Container\ZS Logging Stored proc run"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 12"
+          DTS:To="Package\Foreach Loop Container\ZS  Archive File" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{24696044-25D4-45D4-A5FB-4090555D400B}"
+          DTS:From="Package\Foreach Loop Container\Bulk Insert"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\Create Rank for Table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{ACCB44DF-CF06-46AD-9F23-B7542A4AD332}"
+          DTS:From="Package\Foreach Loop Container\Create Rank for Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container\Find MinDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{B5108A75-AD81-41A8-80B0-C293016870B4}"
+          DTS:From="Package\Foreach Loop Container\Find MinDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Foreach Loop Container\ZS Logging MinDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{7E6D6AAE-2017-4F16-8F54-8FF3FE4C8354}"
+          DTS:From="Package\Foreach Loop Container\ZS Logging MinDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Foreach Loop Container\Find MinTime" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{CC5436A3-33AC-486D-B732-374E87D2DA5D}"
+          DTS:From="Package\Foreach Loop Container\Find MinTime"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Foreach Loop Container\ZS Logging MinTime" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{60CB0874-C103-4250-B80D-F31544799A23}"
+          DTS:From="Package\Foreach Loop Container\ZS Logging MinTime"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\Foreach Loop Container\Insert Into Quakelogs" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{F6640A66-DC8F-413C-BBED-F8E7CED8BA83}"
+          DTS:From="Package\Foreach Loop Container\Insert Into Quakelogs"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\Foreach Loop Container\ZS Logging QUakeLogs Import" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{41E31CC8-30CD-4E97-9F60-5F065DE18A41}"
+          DTS:From="Package\Foreach Loop Container\ZS  Archive File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 9"
+          DTS:To="Package\Foreach Loop Container\ZS Logging Finished" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{407B577E-2909-40B3-A2F5-F79E6743E19A}"
+          DTS:ObjectName="{407B577E-2909-40B3-A2F5-F79E6743E19A}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::varCurFilePath" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{ADCCC06E-FC8E-42BA-998C-5EF1292AEF7C}"
+          DTS:ObjectName="{ADCCC06E-FC8E-42BA-998C-5EF1292AEF7C}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::varFileName" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D313D117-90FF-431C-9DEA-6718EA994240}"
+          DTS:ObjectName="{D313D117-90FF-431C-9DEA-6718EA994240}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::varFileSize" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{BEFDA8AF-7B44-4759-91EA-C62FA1196D0D}"
+          DTS:ObjectName="{BEFDA8AF-7B44-4759-91EA-C62FA1196D0D}"
+          DTS:ValueIndex="3"
+          DTS:VariableName="User::varFileModifiedDate" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ZS Advanced File System Task"
+      DTS:CreationName="ZappySys.FileOperationTask"
+      DTS:Description="ZS Advanced File System Task"
+      DTS:DTSID="{049E0774-CB5E-430D-87EB-76E9D07F6D22}"
+      DTS:ExecutableType="ZappySys.FileOperationTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ZS Advanced File System Task"
+      DTS:TaskContact="Advanced File System Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileOperationTask
+          Action="GetFileListAsADONETDataTable"
+          Permission="Default"
+          SearchString=""
+          ReplaceString=""
+          Encoding="UTF8"
+          SearchMode="Normal"
+          SearchIgnoreCase="False"
+          SourcePathAccessMode="Direct"
+          SourcePathValue="C:\Users\Administrator\Downloads\Processing\*.txt"
+          SourcePathConnection=""
+          SourcePathVariable=""
+          Recursive="False"
+          ResultVariable="User::FileMeta"
+          TargetPathAccessMode="Direct"
+          TargetPathValue=""
+          TargetPathConnection=""
+          TargetPathVariable=""
+          OverWriteOption="AlwaysOverwrite"
+          CreateMissingTargetFolder="True"
+          ContinueOnError="False"
+          ExcludeRegXPattern=""
+          IncludeRegXPattern=""
+          SortBy="Size"
+          SortDirection="Asc"
+          WhereClause=""
+          EnableSort="False"
+          MaxItems="0"
+          LogLevel="Normal"
+          PrefixTimestamp="False" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CFBC495F-A8C9-47AD-98B2-E5B5330DFF1E}"
+      DTS:From="Package\ZS Advanced File System Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Foreach Loop Container\Bulk Insert"
+          TopLeft="292,76" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Foreach Loop Container\Create Rank for Table"
+          TopLeft="474,72" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Foreach Loop Container\Create Table"
+          TopLeft="86,84" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Foreach Loop Container\Find MinDate"
+          TopLeft="98,174" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Foreach Loop Container\Find MinTime"
+          TopLeft="597,169" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Foreach Loop Container\Insert Into Quakelogs"
+          TopLeft="76,257" />
+        <NodeLayout
+          Size="295,42"
+          Id="Package\Foreach Loop Container\Process Data into Quake1 and Other Tables"
+          TopLeft="114,393" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container\ZS  Archive File"
+          TopLeft="354,510" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Foreach Loop Container\ZS Logging Finished"
+          TopLeft="714,503" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Foreach Loop Container\ZS Logging MinDate"
+          TopLeft="302,175" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Foreach Loop Container\ZS Logging MinTime"
+          TopLeft="796,169" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Foreach Loop Container\ZS Logging QUakeLogs Import"
+          TopLeft="92,326" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Foreach Loop Container\ZS Logging Stored proc run"
+          TopLeft="111,487" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Foreach Loop Container\ZS Logging Task"
+          TopLeft="90,17" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="171,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,25"
+              Start="0,0"
+              End="-13.5,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="-4,12.5" />
+                  <mssgle:LineSegment
+                    End="-9.5,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.5,12.5"
+                    Point2="-13.5,12.5"
+                    Point3="-13.5,16.5" />
+                  <mssgle:LineSegment
+                    End="-13.5,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="229,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,-8"
+              Start="0,0"
+              End="55.5,-8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,0"
+                    Point2="31.5,0"
+                    Point3="31.5,-4" />
+                  <mssgle:LineSegment
+                    End="31.5,-4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.5,-4"
+                    Point2="31.5,-8"
+                    Point3="35.5,-8" />
+                  <mssgle:LineSegment
+                    End="55.5,-8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 10]"
+          TopLeft="207,368">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.5,25"
+              Start="0,0"
+              End="54.5,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="4,12.5" />
+                  <mssgle:LineSegment
+                    End="50.5,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.5,12.5"
+                    Point2="54.5,12.5"
+                    Point3="54.5,16.5" />
+                  <mssgle:LineSegment
+                    End="54.5,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 11]"
+          TopLeft="261.5,435">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.5,52"
+              Start="0,0"
+              End="-43.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-39.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.5,26"
+                    Point2="-43.5,26"
+                    Point3="-43.5,30" />
+                  <mssgle:LineSegment
+                    End="-43.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 12]"
+          TopLeft="325,508">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29,23"
+              Start="0,0"
+              End="21.5,23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="10.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,0"
+                    Point2="14.5,0"
+                    Point3="14.5,4" />
+                  <mssgle:LineSegment
+                    End="14.5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5,19"
+                    Point2="14.5,23"
+                    Point3="18.5,23" />
+                  <mssgle:LineSegment
+                    End="21.5,23" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="423,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51,0"
+              Start="0,0"
+              End="43.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="567.5,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-397.5,60"
+              Start="0,0"
+              End="-397.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-393.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-393.5,30"
+                    Point2="-397.5,30"
+                    Point3="-397.5,34" />
+                  <mssgle:LineSegment
+                    End="-397.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="242,195.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60,0"
+              Start="0,0"
+              End="52.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 5]"
+          TopLeft="481,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116,0"
+              Start="0,0"
+              End="108.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 6]"
+          TopLeft="743,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,0"
+              Start="0,0"
+              End="45.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 7]"
+          TopLeft="886,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-689.333333333333,46"
+              Start="0,0"
+              End="-689.333333333333,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3607800650054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3607800650054"
+                    Point2="0,27.3607800650054"
+                    Point3="-4,27.3607800650054" />
+                  <mssgle:LineSegment
+                    End="-685.333333333333,27.3607800650054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-685.333333333333,27.3607800650054"
+                    Point2="-689.333333333333,27.3607800650054"
+                    Point3="-689.333333333333,31.3607800650054" />
+                  <mssgle:LineSegment
+                    End="-689.333333333333,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 8]"
+          TopLeft="167.5,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.5,27"
+              Start="0,0"
+              End="39.5,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="4,13.5" />
+                  <mssgle:LineSegment
+                    End="35.5,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.5,13.5"
+                    Point2="39.5,13.5"
+                    Point3="39.5,17.5" />
+                  <mssgle:LineSegment
+                    End="39.5,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 9]"
+          TopLeft="510,527.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="204,0"
+              Start="0,0"
+              End="196.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="196.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="989,709"
+          Size="989,752"
+          Id="Package\Foreach Loop Container"
+          TopLeft="149,179" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\ZS Advanced File System Task"
+          TopLeft="208,63" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="324,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="319.5,74"
+              Start="0,0"
+              End="319.5,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33"
+                    Point2="0,37"
+                    Point3="4,37" />
+                  <mssgle:LineSegment
+                    End="315.5,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="315.5,37"
+                    Point2="319.5,37"
+                    Point3="319.5,41" />
+                  <mssgle:LineSegment
+                    End="319.5,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
