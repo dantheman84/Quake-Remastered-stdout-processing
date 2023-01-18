@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/10/2023 1:41:54 AM"
@@ -11,11 +11,26 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="96"
-  DTS:VersionGUID="{CB598840-CDEC-4268-852D-524DE6DE8E5C}">
+  DTS:VersionBuild="126"
+  DTS:VersionGUID="{7D2F914A-9394-44D5-A45D-533B64351FC2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gmail]"
+      DTS:CreationName="ZS-SMTP"
+      DTS:DTSID="{F39C6A49-B0B4-4669-A429-DBDD19DB239A}"
+      DTS:ObjectName="Gmail">
+      <DTS:ObjectData>
+        <ConnectionManager
+          ConnectionString="SmtpServer=smtp.gmail.com;UserName=dallas.castillo@gmail.com;Port=587;EnableSsl=True;Timeout=10000;EnableAnonymousAuth=False"
+          ConnectByProxy="False">
+          <Password
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5lgcQmXXBEiTraxvG0+kdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADL7aOVSzQ6hn6SYrUesxTNIE8gNLapTTkQX6EfSF1g4QAAAAAOgAAAAAIAACAAAACJs3yyu1WRizuCzR3fBgpxylHtIlG+cqCUWJ2QLfmF7zAAAACEvDM9ZzvfshsL+cCEISAamndjA2quQ7d0Vn9trMDfxGjKJoxNYIr8A55x9C8PI/hAAAAAwTJ/fIHi9UEynlgMnb7m6mWQ8kHRuvkiH0FdnrtaPd2zMfRvb+qFuCHnsEmsXA0pscfYoKhH45kujaXR0MTIoA</Password>
+        </ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[livingroom.DW]"
       DTS:CreationName="OLEDB"
@@ -30,6 +45,26 @@
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{886F11E0-964F-4C1B-9C3F-D354787BA908}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::ProjDirectory]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Directory">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Administrator\Dropbox\JohnCarmack\*.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{64DCE1BD-4D5B-441A-816F-0C26B1E2200A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileExists">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{70AE20EC-45CC-467E-BB87-C2ED7D61E192}"
@@ -71,42 +106,46 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{BF3B739A-F30D-433F-B8A5-CB67C0D3CCD9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\JohnCarmack\\*.txt&quot;) ? &quot;CRMOD&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\JohnRomero\\*.txt&quot;) ? &quot;Instagib&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\fragstation\\*.txt&quot;) ? &quot;scourge of armagon&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\247armsrace\\*.txt&quot;) ? &quot;arms race&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\rocketsonly\\*.txt&quot;) ? &quot;rockets only&quot; : NULL(DT_WSTR, 20) ))))"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Mod">
       <DTS:VariableValue
-        DTS:DataType="8">rockets only</DTS:VariableValue>
+        DTS:DataType="8">CRMOD</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{A0D1BE4F-3C29-4CAA-962C-E00D48E997E3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\JohnCarmack\\*.txt&quot;) ? &quot;John Carmack&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\JohnRomero\\*.txt&quot;) ? &quot;John Romero&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\fragstation\\*.txt&quot;) ? &quot;fragstation&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\247armsrace\\*.txt&quot;) ? &quot;247armsrace&quot; : ( UPPER(@[User::Directory]) == UPPER(&quot;C:\\Users\\Administrator\\Dropbox\\rocketsonly\\*.txt&quot;) ? &quot;a cheesecake&quot; : NULL(DT_WSTR, 20) ))))"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Server">
       <DTS:VariableValue
-        DTS:DataType="8">a cheesecake</DTS:VariableValue>
+        DTS:DataType="8">John Carmack</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{C23BA09F-7BC4-43C0-84D9-244342C9561D}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="LEFT(@[User::TableName] ,22) == &quot;stdout_JohnRomero_TDM_&quot; ? SUBSTRING( @[User::TableName],23 , 10 ) : ( LEFT(@[User::TableName] ,23) == &quot;stdout_JohnRomero_KOtH_&quot; ?&#xA;SUBSTRING( @[User::TableName]  , 24 , 10 )&#xA;: ( LEFT(@[User::TableName] ,27) == &quot;stdout_JohnRomero_Instagib_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 28, 10 )&#xA;:&#xA;SUBSTRING( @[User::TableName]  , 20, 10 )&#xA;)&#xA;)"
+      DTS:Expression="LEFT(@[User::TableName] ,22) == &quot;stdout_JohnRomero_TDM_&quot; &#xA;? SUBSTRING( @[User::TableName],23 , 10 ) &#xA;: ( LEFT(@[User::TableName] ,23) == &quot;stdout_JohnRomero_KOtH_&quot; ?&#xA;SUBSTRING( @[User::TableName]  , 24 , 10 )&#xA;: ( LEFT(@[User::TableName] ,27) == &quot;stdout_JohnRomero_Instagib_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 28, 10 )&#xA;:&#xA;( LEFT(@[User::TableName] ,23) == &quot;stdout_Fragstation_SoA_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 24, 10 )&#xA;:&#xA;SUBSTRING( @[User::TableName]  , 20, 10 ))))"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TableDate">
       <DTS:VariableValue
-        DTS:DataType="8">2023-01-04</DTS:VariableValue>
+        DTS:DataType="8">2023-01-11</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{FA6BE772-6C5C-49D7-9486-FEF36A990DBF}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="LEFT(@[User::TableName] ,22) == &quot;stdout_JohnRomero_TDM_&quot; ? SUBSTRING( @[User::TableName],34 , 2 ) : ( LEFT(@[User::TableName] ,23) == &quot;stdout_JohnRomero_KOtH_&quot; ?&#xA;SUBSTRING( @[User::TableName]  , 35 , 2 )&#xA;:( LEFT(@[User::TableName] ,27) == &quot;stdout_JohnRomero_Instagib_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 39, 2)&#xA;:&#xA;SUBSTRING( @[User::TableName]  , 31, 2)&#xA;)&#xA;)"
+      DTS:Expression="LEFT(@[User::TableName] ,22) == &quot;stdout_JohnRomero_TDM_&quot; ? SUBSTRING( @[User::TableName],34 , 2 ) : ( LEFT(@[User::TableName] ,23) == &quot;stdout_JohnRomero_KOtH_&quot; ?&#xA;SUBSTRING( @[User::TableName]  , 35 , 2 )&#xA;:( LEFT(@[User::TableName] ,27) == &quot;stdout_JohnRomero_Instagib_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 39, 2)&#xA;:&#xA;( LEFT(@[User::TableName] ,23) == &quot;stdout_Fragstation_SoA_&quot; ? &#xA;SUBSTRING( @[User::TableName]  , 35, 2)&#xA;:&#xA;SUBSTRING( @[User::TableName]  , 31, 2)&#xA;)&#xA;)&#xA;)"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TableHour">
       <DTS:VariableValue
-        DTS:DataType="8">09</DTS:VariableValue>
+        DTS:DataType="8">04</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -117,7 +156,18 @@
       DTS:Namespace="User"
       DTS:ObjectName="TableName">
       <DTS:VariableValue
-        DTS:DataType="8">stdout_RocketsOnly_2023-01-04T09-01-29.237022300</DTS:VariableValue>
+        DTS:DataType="8">stdout_Fragstation_SoA_2023-01-11T04-07-05.330012100</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3C4A987B-50FC-40AD-B787-0DE62E42FFD2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="REPLACE(@[User::varCurFilePath], @[User::varFileName] ,&quot;&quot;) + &quot;Processed\\&quot; + @[User::varFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varArchiveFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">Processed\stdout_Fragstation_SoA_2023-01-11T04-07-05.330012100</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -145,7 +195,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varFileName">
       <DTS:VariableValue
-        DTS:DataType="8">stdout_RocketsOnly_2023-01-04T09-01-29.237022300</DTS:VariableValue>
+        DTS:DataType="8">stdout_Fragstation_SoA_2023-01-11T04-07-05.330012100</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -399,7 +449,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="ZS  Archive File"
           DTS:TaskContact="Advanced File System Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileOperationTask
@@ -416,10 +466,10 @@
               SourcePathVariable="User::varCurFilePath"
               Recursive="False"
               ResultVariable=""
-              TargetPathAccessMode="Direct"
+              TargetPathAccessMode="Variable"
               TargetPathValue="C:\Users\Administrator\Downloads\Processing\Processed\"
               TargetPathConnection=""
-              TargetPathVariable=""
+              TargetPathVariable="User::varArchiveFilePath"
               OverWriteOption="AlwaysOverwrite"
               CreateMissingTargetFolder="True"
               ContinueOnError="False"
@@ -435,6 +485,38 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ZS HTML Email Task"
+          DTS:CreationName="ZappySys.HtmlEmailTask"
+          DTS:Description="ZS HTML Email Task"
+          DTS:DTSID="{e08dfdfd-bef2-43b1-99cd-ef7f15b6a95e}"
+          DTS:ExecutableType="ZappySys.HtmlEmailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZS HTML Email Task"
+          DTS:TaskContact="HTML Email Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <HtmlEmailTask
+              SmtpConnection="Gmail"
+              IsHtmlEmail="True"
+              DefaultStyle="&#xA;&lt;style type=&quot;text/css&quot;&gt;&#xA;body,div,p,span,td,th,table {&#xA; font-family: Helvetica, Arial, sans-serif;&#xA; font-size: 10pt; &#xA;}&#xA;h1,h2,h3,h4,h5{&#xA;font-family: Helvetica, Arial, sans-serif;&#xA;}&#xA;&#xA;table { &#xA; border-collapse: &#xA; collapse; border-spacing: 0; &#xA;}&#xA;&#xA;tr.odd    {background-color: #cccccc}&#xA;tr.even   {background-color: #fafafa}&#xA;td, th { border: 1px solid #bbb;padding: 5 5 5 5} &#xA;th { background: #F3F3F3;  font-weight: bold;}&#xA;&lt;/style&gt;&#xA;&#xA;"
+              Subject="{{User::TableName}}"
+              From="dallas.castillo@gmail.com"
+              To="superdanman84@hotmail.com; dallas.castillo@gmail.com"
+              Cc=""
+              ReplyTo=""
+              Bcc=""
+              Attachments=""
+              EmailPriority="Low"
+              MessageSourceType="Direct"
+              MessageDirectValue="{{User::TableName}} was trying to process data in the quakelogs stored procedure. You may need to rerun this and relocate the file&#xA;&#xA;{{User::varCurFilePath}} Please move this file before rerunning again!"
+              MessageFileConnection=""
+              MessageVariable=""
+              LogLevel="Normal"
+              PrefixTimestamp="False" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach Loop Container\ZS Logging Finished"
           DTS:CreationName="ZappySys.LoggingTask"
           DTS:Description="ZS Logging Task"
@@ -443,7 +525,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="ZS Logging Finished"
           DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <LoggingTask
@@ -543,7 +625,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="ZS Logging Stored proc run"
           DTS:TaskContact="Logging Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <LoggingTask
@@ -626,6 +708,15 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 12"
           DTS:To="Package\Foreach Loop Container\ZS  Archive File" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 13]"
+          DTS:CreationName=""
+          DTS:DTSID="{73A165E6-B100-4F91-BDD2-B91D559FF47D}"
+          DTS:From="Package\Foreach Loop Container\Process Data into Quake1 and Other Tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 13"
+          DTS:To="Package\Foreach Loop Container\ZS HTML Email Task"
+          DTS:Value="1" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
@@ -738,10 +829,10 @@
           Encoding="UTF8"
           SearchMode="Normal"
           SearchIgnoreCase="False"
-          SourcePathAccessMode="Direct"
-          SourcePathValue="C:\Users\Administrator\Downloads\Processing\*.txt"
+          SourcePathAccessMode="Variable"
+          SourcePathValue="C:\Users\Administrator\Dropbox\JohnCarmack\*.txt"
           SourcePathConnection=""
-          SourcePathVariable=""
+          SourcePathVariable="User::Directory"
           Recursive="False"
           ResultVariable="User::FileMeta"
           TargetPathAccessMode="Direct"
@@ -762,16 +853,103 @@
           PrefixTimestamp="False" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ZS HTML Email Task"
+      DTS:CreationName="ZappySys.HtmlEmailTask"
+      DTS:Description="ZS HTML Email Task"
+      DTS:DTSID="{21125420-AA7A-401C-96CB-F7C8E3962EE5}"
+      DTS:ExecutableType="ZappySys.HtmlEmailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ZS HTML Email Task"
+      DTS:TaskContact="HTML Email Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <HtmlEmailTask
+          SmtpConnection="Gmail"
+          IsHtmlEmail="True"
+          DefaultStyle="&#xA;&lt;style type=&quot;text/css&quot;&gt;&#xA;body,div,p,span,td,th,table {&#xA; font-family: Helvetica, Arial, sans-serif;&#xA; font-size: 10pt; &#xA;}&#xA;h1,h2,h3,h4,h5{&#xA;font-family: Helvetica, Arial, sans-serif;&#xA;}&#xA;&#xA;table { &#xA; border-collapse: &#xA; collapse; border-spacing: 0; &#xA;}&#xA;&#xA;tr.odd    {background-color: #cccccc}&#xA;tr.even   {background-color: #fafafa}&#xA;td, th { border: 1px solid #bbb;padding: 5 5 5 5} &#xA;th { background: #F3F3F3;  font-weight: bold;}&#xA;&lt;/style&gt;&#xA;&#xA;"
+          Subject="{{User::Directory}}  Has no Files"
+          From="dallas.castillo@gmail.com"
+          To="superdanman84@hotmail.com; dallas.castillo@gmail.com"
+          Cc=""
+          ReplyTo=""
+          Bcc=""
+          Attachments=""
+          EmailPriority="Low"
+          MessageSourceType="Direct"
+          MessageDirectValue="{{User::Directory}} has no files in it. Nothing processed"
+          MessageFileConnection=""
+          MessageVariable=""
+          LogLevel="Normal"
+          PrefixTimestamp="False" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ZS Validation Task"
+      DTS:CreationName="ZappySys.ValidationTask"
+      DTS:Description="ZS Validation Task"
+      DTS:DTSID="{FFE931AD-170C-49BF-BA76-5D6E9CD819C0}"
+      DTS:ExecutableType="ZappySys.ValidationTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ZS Validation Task"
+      DTS:TaskContact="Validation Task; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ValidationTask
+          Action="CheckFileExists"
+          SourcePathAccessMode="Variable"
+          SourcePath=""
+          SourcePathVariable="User::Directory"
+          SourcePathConnection=""
+          SearchPattern=""
+          RecursiveScan="False"
+          Operator="Eq"
+          ExpectedResult="True"
+          CustomMessage=""
+          ThrowErrorOnValidationFailure="True"
+          EnableSaveStatus="True"
+          StatusVariable="User::FileExists"
+          EnableSaveMessage="False"
+          MessageVariable=""
+          Expression=""
+          FileProperty="Size"
+          FolderProperty="TotalSize"
+          LogLevel="Normal"
+          PrefixTimestamp="False" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{CFBC495F-A8C9-47AD-98B2-E5B5330DFF1E}"
+      DTS:DTSID="{A5C9B29C-8E16-4514-8930-4046A910D0BD}"
       DTS:From="Package\ZS Advanced File System Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
+      DTS:To="Package\ZS Validation Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{53FA59D7-A3B5-4042-B5FA-57DCD6D230BF}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[User::FileExists] == True"
+      DTS:From="Package\ZS Validation Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
       DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{09528125-1F4B-426B-9204-0852E3A939C6}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[User::FileExists] == False"
+      DTS:From="Package\ZS Validation Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\ZS HTML Email Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -784,7 +962,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="131,42"
           Id="Package\Foreach Loop Container\Bulk Insert"
@@ -1223,49 +1401,169 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="183,44"
+          Id="Package\Foreach Loop Container\ZS HTML Email Task"
+          TopLeft="527,378" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 13]"
+          TopLeft="409,414">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118,-14"
+              Start="0,0"
+              End="110.5,-14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55,0"
+                    Point2="59,0"
+                    Point3="59,-4" />
+                  <mssgle:LineSegment
+                    End="59,-10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,-10"
+                    Point2="59,-14"
+                    Point3="63,-14" />
+                  <mssgle:LineSegment
+                    End="110.5,-14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="43.75865234375,1,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="989,709"
-          Size="989,752"
+          PanelSize="982,607"
+          Size="982,650"
           Id="Package\Foreach Loop Container"
           TopLeft="149,179" />
         <NodeLayout
           Size="232,42"
           Id="Package\ZS Advanced File System Task"
-          TopLeft="208,63" />
+          TopLeft="211,18" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\ZS Validation Task"
+          TopLeft="373,88" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="324,105">
+          TopLeft="327,60">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="319.5,74"
+              EndConnector="131.5,28"
               Start="0,0"
-              End="319.5,66.5">
+              End="131.5,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33" />
+                    End="0,10" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33"
-                    Point2="0,37"
-                    Point3="4,37" />
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="4,14" />
                   <mssgle:LineSegment
-                    End="315.5,37" />
+                    End="127.5,14" />
                   <mssgle:CubicBezierSegment
-                    Point1="315.5,37"
-                    Point2="319.5,37"
-                    Point3="319.5,41" />
+                    Point1="127.5,14"
+                    Point2="131.5,14"
+                    Point3="131.5,18" />
                   <mssgle:LineSegment
-                    End="319.5,66.5" />
+                    End="131.5,20.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="458.5,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="181.5,49"
+              Start="0,0"
+              End="181.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="177.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="177.5,24.5"
+                    Point2="181.5,24.5"
+                    Point3="181.5,28.5" />
+                  <mssgle:LineSegment
+                    End="181.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="82.75,29.5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183,44"
+          Id="Package\ZS HTML Email Task"
+          TopLeft="711,75" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="544,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167,-12"
+              Start="0,0"
+              End="159.5,-12">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="79.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.5,0"
+                    Point2="83.5,0"
+                    Point3="83.5,-4" />
+                  <mssgle:LineSegment
+                    End="83.5,-8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.5,-8"
+                    Point2="83.5,-12"
+                    Point3="87.5,-12" />
+                  <mssgle:LineSegment
+                    End="159.5,-12" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="75.5,1,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

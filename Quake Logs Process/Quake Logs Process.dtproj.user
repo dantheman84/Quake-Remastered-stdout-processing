@@ -8,6 +8,9 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <ServerName>livingroom</ServerName>
+        <PathOnServer>/SSISDB/QEServerLogs/Quake Logs Process</PathOnServer>
+        <StartObjectID>Process Log Files.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
