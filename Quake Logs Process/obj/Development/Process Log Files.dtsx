@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="126"
-  DTS:VersionGUID="{7D2F914A-9394-44D5-A45D-533B64351FC2}">
+  DTS:VersionBuild="137"
+  DTS:VersionGUID="{5951B388-5CE9-4155-9646-F7D4DB993007}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           ConnectByProxy="False">
           <Password
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5lgcQmXXBEiTraxvG0+kdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADL7aOVSzQ6hn6SYrUesxTNIE8gNLapTTkQX6EfSF1g4QAAAAAOgAAAAAIAACAAAACJs3yyu1WRizuCzR3fBgpxylHtIlG+cqCUWJ2QLfmF7zAAAACEvDM9ZzvfshsL+cCEISAamndjA2quQ7d0Vn9trMDfxGjKJoxNYIr8A55x9C8PI/hAAAAAwTJ/fIHi9UEynlgMnb7m6mWQ8kHRuvkiH0FdnrtaPd2zMfRvb+qFuCHnsEmsXA0pscfYoKhH45kujaXR0MTIoA</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5lgcQmXXBEiTraxvG0+kdgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC3Ss3E003go0vBwtDyoSbKmQS+pfaiTasaKbAA/5eh2wAAAAAOgAAAAAIAACAAAACS65tP7a1GVXoMOvJ1zhT8xKRzypddsOYD1G0AxZzLXDAAAABUDn5FylsXzAu5CmLC9g/YFRfHsj7+xbKuVeRbX9TGeJHxiUwMU1RYZ/mtk5C6yLVAAAAA5r9/DKZ+u/AmpC8ZKto3LAKgygw/EFFIY3wlXyXLLHjZIzu5vf6qkS0ELeAQ6x8WDsp0uCZ8KEP0b1+z7oKL7Q</Password>
         </ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -437,6 +437,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{81DD8A78-C28D-461C-AAEF-DAD22BF7FA4E}"
+              SQLTask:IsStoredProc="True"
               SQLTask:SqlStatementSource="EXEC [dbo].[usp_QuakeLogMessages] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -908,7 +909,7 @@
           Operator="Eq"
           ExpectedResult="True"
           CustomMessage=""
-          ThrowErrorOnValidationFailure="True"
+          ThrowErrorOnValidationFailure="False"
           EnableSaveStatus="True"
           StatusVariable="User::FileExists"
           EnableSaveMessage="False"
@@ -995,6 +996,10 @@
           Size="156,42"
           Id="Package\Foreach Loop Container\ZS  Archive File"
           TopLeft="354,510" />
+        <NodeLayout
+          Size="183,44"
+          Id="Package\Foreach Loop Container\ZS HTML Email Task"
+          TopLeft="527,378" />
         <NodeLayout
           Size="180,42"
           Id="Package\Foreach Loop Container\ZS Logging Finished"
@@ -1187,6 +1192,42 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 13]"
+          TopLeft="409,414">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118,-14"
+              Start="0,0"
+              End="110.5,-14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55,0"
+                    Point2="59,0"
+                    Point3="59,-4" />
+                  <mssgle:LineSegment
+                    End="59,-10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,-10"
+                    Point2="59,-14"
+                    Point3="63,-14" />
+                  <mssgle:LineSegment
+                    End="110.5,-14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="43.75865234375,1,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1401,46 +1442,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183,44"
-          Id="Package\Foreach Loop Container\ZS HTML Email Task"
-          TopLeft="527,378" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 13]"
-          TopLeft="409,414">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="118,-14"
-              Start="0,0"
-              End="110.5,-14">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="55,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="55,0"
-                    Point2="59,0"
-                    Point3="59,-4" />
-                  <mssgle:LineSegment
-                    End="59,-10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59,-10"
-                    Point2="59,-14"
-                    Point3="63,-14" />
-                  <mssgle:LineSegment
-                    End="110.5,-14" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="43.75865234375,1,30.4826953125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -1452,6 +1453,10 @@
           Size="232,42"
           Id="Package\ZS Advanced File System Task"
           TopLeft="211,18" />
+        <NodeLayout
+          Size="183,44"
+          Id="Package\ZS HTML Email Task"
+          TopLeft="711,75" />
         <NodeLayout
           Size="171,42"
           Id="Package\ZS Validation Task"
@@ -1526,10 +1531,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183,44"
-          Id="Package\ZS HTML Email Task"
-          TopLeft="711,75" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="544,109">
